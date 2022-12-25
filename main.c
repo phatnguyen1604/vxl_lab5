@@ -75,10 +75,10 @@ static void MX_USART2_UART_Init(void);
 uint8_t buffer[MAX_BUFFER];
 uint8_t index=0;
 uint8_t buffer_flag=0;
-uint8_t tx_data[20]="PASS MCU\r\n";
+uint8_t tx_data[20]="Hello World\r\n";
 uint8_t rx_data;
-uint8_t first_ins[5]="!GOO#";
-uint8_t second_ins[4]="!YO#";
+uint8_t first_ins[5]="!RST#";
+uint8_t second_ins[4]="!OK#";
 uint8_t now;
 uint8_t command_flag=0;
 void HAL_UART_RxCpltCallback ( UART_HandleTypeDef * huart )
@@ -161,7 +161,7 @@ void uart_communication()
 	   }
 	   else if(command_flag==2)
 	   {
-		     sprintf(str2,"OKAY!!! \r\n");
+		     sprintf(str2,"Done!!! \r\n");
 		     HAL_UART_Transmit(&huart2, str2, sizeof(str2), 500);
 		     command_flag=0;
 	   }
